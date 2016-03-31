@@ -18,12 +18,13 @@ function send404(response) {
     response.writeHead(200, { 'content-type': 'text/html' });
     fs.createReadStream('./public/404.html').pipe(response);
 }
-
+console.log('here');
 var mimeLookup = {
     '.js': 'application/javascript',
     '.html': 'text/html',
     '.css': 'text/css',
     '.gif': 'image/gif'
+
 };
 
 var server = http.createServer(function (req, res) {
