@@ -1,10 +1,64 @@
-#img404 {
-    display: block;
-    margin: 5% auto;
+
+.background {
+    background-color: aqua;
+    background-image: url(/public/images/brokenMonitor.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
 }
 
-h1 {
-  text-align: center;
+.title {
+    font-size: 10em;
+    color: #2D882D;
+    text-align: center;
+    margin-bottom: auto;
+    margin-top: auto;
+
+
 }
 
+.error {
+    text-align: center;
+    color: darkred;
+    font-size: 2em;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.text {
+    text-align: center;
+    color: darkgreen;
+    font-size: 2em;
+    margin-bottom: auto;
+    margin-top: auto;
+
+}
+
+.text2{
+    text-align: center;
+    color: darkgreen;
+    font-size: 1em;
+    margin-bottom: auto;
+    margin-top: auto;
+    text-shadow: 1px 1px 0px #777777;
+
+}
+
+.text3 {
+    text-shadow: 1px 1px 0px #777777;
+}
+
+span {
+    text-shadow: 2px 2px 0px #777777;
+}
+
+.sp1 {
+    text-align: center;
+    color: #2D882D;
+    font-size: 4em;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-shadow: 2px 2px 0px #777777;
+}
 
