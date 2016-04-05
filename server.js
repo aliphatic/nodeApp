@@ -24,7 +24,9 @@ var mimeLookup = {
     '.html': 'text/html',
     '.css': 'text/css',
     '.gif': 'image/gif',
-    '.json': 'application/json'
+    '.json': 'application/json',
+    '.jpg': 'image/jpg',
+    '.csv': 'text/csv'
 
 };
 
