@@ -28,8 +28,8 @@ body {
 
 #main {
 
-    width: 800px;
-    height: 400px;
+    width: 1000px;
+    height: 520px;
     background-color: dimgrey;
     margin-left: auto;
     margin-right: auto;
@@ -57,5 +57,10 @@ a {
 a:hover {
     background-color: whitesmoke;
 
+}
+
+svg {
+    margin-left: 4.5em;
+    margin-right: 4.5em;
 }
 
