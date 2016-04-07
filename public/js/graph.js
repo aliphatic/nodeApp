@@ -55,7 +55,7 @@ var url = "project_list.csv"
 
                 var axisPadding = 3;
 
-                var svg = d3.select('body')
+                var svg = d3.select('#main')
                     .append('svg')
                     .attr({ width: totalWidth, height: totalHeight });
 
