@@ -34,11 +34,12 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 #link {
     position: relative;
-    top: 93%;
+    top: 2.5em;
     width: 360px;
     height: 20px;
     background-color: lightgray;
@@ -59,8 +60,112 @@ a:hover {
 
 }
 
-svg {
+#main svg {
     margin-left: 4.5em;
     margin-right: 4.5em;
+    margin-top: 2em;
 }
 
+#content {
+    position: relative;
+    top: 2em;
+    background-color: #c0c0c0;
+    width: 860px;
+    height: 450px;
+    margin-left: 4.5em;
+    margin-right: 4.5em;
+
+}
+
+.ct {
+    font-size: 30px;
+    position: relative;
+    top: 1em;
+    margin-left: 2em;
+}
+
+.n {
+    position: relative;
+    top: 0.5em;
+    margin-left: 4em;
+}
+
+.def {
+    position: relative;
+    margin-left: 4em;
+    font-style: italic;
+}
+
+p {
+    position: relative;
+    margin-left: 4em;
+}
+
+
+/*#dataHidden{
+    width: 700px;
+    height:190px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: none;
+    background-color: dimgray;
+}
+
+#dataVisible{
+    width: 1200px;
+    height:250px;
+    margin-left: auto;
+    margin-right: auto;
+
+    background-color: dimgray;
+}
+
+#dh2Hidden {
+    width: 1180px;
+    height: 230px;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #c0c0c0;
+    display: none;
+}
+
+#dh2Visible {
+    width: 1180px;
+    height: 230px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 10px;
+    background-color: #c0c0c0;
+
+}
+
+#clseHidden {
+    width: 30px;
+    height: 30px;
+    margin: 1px;
+    float: right;
+    background-color: dimgray;
+    display: none;
+}
+
+#closeHidden rect {
+    position: inherit;
+}
+
+#clseVisible {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    margin: 1px;
+    float: right;
+    background-color: dimgray;
+
+}
+
+#clseVisible:hover {
+    background-color: red;
+}*/  /*still working on*/

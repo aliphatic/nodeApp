@@ -2,6 +2,7 @@ var url = "project_list.csv"
 
 
 
+
             d3.csv(url, function (error, data) {
                var mapped = data.map(function (d) {
                    return {
@@ -21,11 +22,13 @@ var url = "project_list.csv"
                         if (mapped[i].federalContribution  > 27000000 && mapped[i].federalContribution  < 80000000 && mapped[i].Region === 'on' ) {
                             /*shortData.push(mapped[i]);*/
                             if (mapped[i].location.length > 20) {
-                                shortData.push({location:mapped[i].location.substring(0, 19)+'...', projectTitle:mapped[i].projectTitle, federalContribution:mapped[i].federalContribution});
+                                shortData.push({location:mapped[i].location.substring(0, 19)+'...', projectTitle:mapped[i].projectTitle, federalContribution:mapped[i].federalContribution, index:i
+                               });
                                 /*location.push(mapped[i]);*/
 
                             }
-                            else {shortData.push(mapped[i]) };
+                            else {shortData.push({location:mapped[i].location, projectTitle:mapped[i].projectTitle, federalContribution:mapped[i].federalContribution, index:i
+                               }) };
 
                             if (mapped[i].projectTitle.length > 20) {
                                 projectTitle.push(mapped[i].projectTitle.substring(0, 19)+'...');
@@ -37,7 +40,10 @@ var url = "project_list.csv"
                         };
 
 
-                    };
+                    }; /*close for for loop*/
+                /*console.log('here',shortData);
+                console.log(data[shortData.index]);*/
+
 
                 var fedCon = shortData.map (function (d) {
                     return +d.federalContribution;
@@ -78,24 +84,26 @@ var url = "project_list.csv"
                     .text('Top 17 Infrastructure Ontario Infrastructure Projects for 2016');
 
                 svg.append('text')
-                    .attr('x',30)
-                    .attr('y', 170)
+                    .attr('x',40)
+                    .attr('y', 200)
                     .attr('text-anchor', 'middle')
                     .style('fill', 'black')
                     .style('font-family', 'arial')
-                    .style('font-size', '16')
+                    .style('font-size', '11')
                     .style('writing-mode', 'tb')
+                    .style('glyph-orientation-vertical', '0')
                     .text('Federal Contribution in Dollars');
 
                 svg.append('text')
-                    .attr('x',80)
-                    .attr('y', 400)
+                    .attr('x',120)
+                    .attr('y', 380)
                     .attr('text-anchor', 'middle')
                     .style('fill', 'black')
                     .style('font-family', 'arial')
-                    .style('font-size', '16')
-
-                    .text('Project Title -');
+                    .style('font-size', '9')
+                    .style('writing-mode', 'tb')
+                    .style('glyph-orientation-vertical', '0')
+                    .text('Project Title ');
 
 
                var gradient = svg.append('defs')
@@ -174,9 +182,95 @@ var url = "project_list.csv"
                     .append('g')
                     .attr('transform', translator)
 
-
-
                 barGroup.append('rect')
+
+                     .on('mouseover', function(d) {
+                    d3.select(this).attr('fill', '#0f5960').style('opacity', '0.5');
+                })
+
+                    .on('mouseout', function(d) {
+                    d3.select(this).attr('fill', 'url(#gradient)').attr('filter', 'url(#filter1)').style('opacity', '1');
+                })
+
+                    /*.on('click', function (d) {
+
+                        d3.select('#dataHidden')
+                            .attr('id', 'dataVisible')
+
+                        d3.select('#dh2Hidden')
+                            .attr('id', 'dh2Visible')
+
+                        d3.select('#clseHidden')
+                            .attr('id', 'clseVisible')
+
+                        d3.select('#pnData')
+                            .append('text')
+                            .data(shortData)
+                            .text(function (d){return data[d.index].projectNumber});
+
+                         d3.select('#ptData')
+                            .append('text')
+                            .data(shortData)
+                            .text(function (d){return data[d.index].projectTitle});
+
+                        d3.select('#prgData')
+                            .append('text')
+                            .data(shortData)
+                            .text(function (d){return data[d.index].program});
+
+                        d3.select('#ctgyData')
+                            .append('text')
+                            .data(shortData)
+                            .text(function (d){return data[d.index].category});
+
+                        d3.select('#lctData')
+                            .append('text')
+                            .data(shortData)
+                            .text(function (d){return data[d.index].location});
+
+                        d3.select('#rgnData')
+                            .append('text')
+                            .data(shortData)
+                            .text(function (d){return data[d.index].region});
+
+                        d3.select('#appdData')
+                            .append('text')
+                            .data(shortData)
+                            .text(function (d){return data[d.index].approvedDate});
+
+                        d3.select('#csdData')
+                            .append('text')
+                            .data(shortData)
+                            .text(function (d){return data[d.index].constructionStartDate});
+
+                        d3.select('#cedData')
+                            .append('text')
+                            .data(shortData)
+                            .text(function (d){return data[d.index].constructionEndDate});
+
+                        d3.select('#fedData')
+                            .append('text')
+                            .data(shortData)
+                            .text(function (d){return data[d.index].federalContribution});
+
+                        d3.select('#tecData')
+                            .append('text')
+                            .data(shortData)
+                            .text(function (d){return data[d.index].totalEligibleCost});
+
+                        d3.select('#urData')
+                            .append('text')
+                            .data(shortData)
+                            .text(function (d){return data[d.index].ultimateRecipient});*/
+                /*console.log(d);
+                console.log(data[d.index]);
+                console.log(data[d.index].federalContribution);
+                 console.log(data[d.index].ultimateRecipient);*/
+                /*})*/ /*still working on*/
+
+
+
+
 
                     .attr({
                         width: graphBars.rangeBand() -3 ,
@@ -195,6 +289,28 @@ var url = "project_list.csv"
 
                     })
                     .attr('filter', 'url(#filter1)');
+
+               /* d3.select('#clseHidden').append('svg').append('rect')
+
+                        .attr({
+                            width: 30,
+                            height: 30,
+                     })
+                        .style('fill', 'dimgray')
+                        .text('X')
+                        .style('text-align', 'center')
+                        .style('margin', '1')
+                        .on('click', function () {
+                            d3.select('#dataVisible')
+                            .attr('id', '#dataHidden')
+
+                            d3.select('#dh2Visible')
+                                .attr('id', '#dh2Hidden')
+
+                            d3.select('#clseVisible')
+                                .attr('id', '#clseHidden')
+
+                    });*/  /*Working on this still*/
 
 
 
@@ -280,8 +396,8 @@ var url = "project_list.csv"
                     axisNodes.selectAll('.domain')
                         .attr ({
                             fill: 'none',
-                            'stroke-width': 0.8,
-                            stroke: 'red'
+                            'stroke-width': 1,
+                            stroke: 'black'
                     });
                 axisNodes.selectAll('.tick line')
                     .attr({
@@ -291,12 +407,23 @@ var url = "project_list.csv"
                 });
 
 
-                }
+                };
 
+                /*d3.select('#clseVisible')
+                        .on('click', function () {
+                            d3.select('#dataVisible')
+                            .attr('id', '#dataHidden')
+
+                            d3.select('#dh2Visible')
+                                .attr('id', '#dh2Hidden')
+
+                            d3.select('#clseVisible')
+                                .attr('id', '#clseHidden')
+
+                    });*/
 
 
 
 
             }); /*d3.csv tag end*/
-
 
